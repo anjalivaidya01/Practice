@@ -19,4 +19,6 @@ public class Customer {
 
     private String phoneNo;
 
+    private String profile;
+
 }

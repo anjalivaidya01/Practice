@@ -47,6 +47,8 @@ public class CustomerController {
             existingCustomer.setName(customer.getName());
             existingCustomer.setEmail(customer.getEmail());
             existingCustomer.setPhoneNo(customer.getPhoneNo());
+        existingCustomer.setProfile(customer.getProfile());
+
 
             Customer updatedCustomer = customerService.updateCustomer(existingCustomer);
             return ResponseEntity.ok(updatedCustomer);
