@@ -1,7 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Customer;
-import com.example.demo.repo.CustomerRepo;
 import com.example.demo.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +20,11 @@ public class CustomerController {
     public Customer postCustomer(@RequestBody Customer customer) {
         return customerService.postCustomer(customer);
 
+    }
+
+    @RequestMapping("/customers/search")
+    public List<Customer> searchCustomer(@RequestParam String name){
+        return  customerService.searchByName(name);
     }
 
 
@@ -71,4 +75,6 @@ public class CustomerController {
 
         return ResponseEntity.ok().build();
     }
+
+
 }

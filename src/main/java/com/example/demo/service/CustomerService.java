@@ -36,4 +36,8 @@ public class CustomerService {
     public void deleteCustomer(Long id){
          customerRepo.deleteById(id);
     }
+
+    public List<Customer> searchByName(String name){
+        return customerRepo.findByNameContainingIgnoreCase(name);
+    }
 }
