@@ -51,7 +51,10 @@ public class CustomerController {
             existingCustomer.setName(customer.getName());
             existingCustomer.setEmail(customer.getEmail());
             existingCustomer.setPhoneNo(customer.getPhoneNo());
-        existingCustomer.setProfile(customer.getProfile());
+            existingCustomer.setUsername(customer.getUsername());
+            existingCustomer.setPassword(customer.getPassword());
+
+        existingCustomer.setRole(customer.getRole());
 
 
             Customer updatedCustomer = customerService.updateCustomer(existingCustomer);
@@ -76,5 +79,21 @@ public class CustomerController {
         return ResponseEntity.ok().build();
     }
 
+
+    @PostMapping("/register")
+    public Customer register(
+            @RequestBody Customer customer){
+
+        return customerService.register(customer);
+    }
+
+    @PostMapping("/login")
+    public Customer login(
+            @RequestBody Customer customer){
+
+        return customerService.login(
+                customer.getUsername(),
+                customer.getPassword());
+    }
 
 }

@@ -9,6 +9,7 @@ import lombok.Data;
 public class Customer {
 
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,6 +20,10 @@ public class Customer {
 
     private String phoneNo;
 
-    private String profile;
+    private String username;
+
+    private String password;
+
+    private String role;
 
 }

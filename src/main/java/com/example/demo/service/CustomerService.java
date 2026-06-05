@@ -40,4 +40,27 @@ public class CustomerService {
     public List<Customer> searchByName(String name){
         return customerRepo.findByNameContainingIgnoreCase(name);
     }
+
+    public Customer register(Customer customer){
+
+        Customer existingCustomer =
+                customerRepo.findByUsername(
+                        customer.getUsername());
+
+        if(existingCustomer != null){
+            return null;
+        }
+
+        return customerRepo.save(customer);
+    }
+
+    public Customer login(
+            String username,
+            String password){
+
+        return customerRepo
+                .findByUsernameAndPassword(
+                        username,
+                        password);
+    }
 }
